@@ -1,0 +1,17 @@
+{
+  "name": "node-poker",
+  "version": "0.0.1",
+  "author": "Dave Stibrany <dstibrany@gmail.com>",
+  "description": "",
+  
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:dstibrany/node-poker.git"
+  },
+  "dependencies" : {
+    "lodash"   :  ""
+  },
+  "engines": {
+    "node": ">=0.6"
+  }
+}
