@@ -5,26 +5,25 @@ var numCards = process.argv[2] || 1;
 
 var dealer = new Dealer();
 var board = dealer.dealCards(5);
+var hand = dealer.dealCards(2);
+console.log(hand.print(), board.print())
 
-console.log(board.sort().print());
-
-var spliced = board.splice('A');
-console.log("Spliced: ", spliced.print());
-console.log("board:", board.print());
+// var spliced = allCards.splice(-3);
+// console.log("Spliced: ", spliced.print())
+// console.log("Remaining cards:", allCards.print());
 
 
-// var handAnalyzer = new HandAnalyzer(board);
+var handAnalyzer = new HandAnalyzer(board);
+var count = 0;
+do {
+    var hand1 = dealer.dealCards(2);
+    count++;
+    handAnalyzer.analyze(hand1);
+    console.log('Cards ', board.print(), hand1.print());
+}
+while (!handAnalyzer.isFlush());
 
-// do {
-//     var hand1 = dealer.dealCards(2);
-//     count++;
-//     handAnalyzer.analyze(hand1);
-//     console.log('Cards ', board.print(), hand1.print());
-// }
-// while (!handAnalyzer.isFlush());
-
-// console.log(util.inspect(handAnalyzer));
-// console.log('Took %s deals', count);
+console.log('Took %s deals', count);
 
 
 
