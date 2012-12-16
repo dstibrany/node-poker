@@ -12,17 +12,17 @@ console.log(hand.print(), board.print())
 // console.log("Spliced: ", spliced.print())
 // console.log("Remaining cards:", allCards.print());
 
-
 var handAnalyzer = new HandAnalyzer(board);
 var count = 0;
+var lowEnd;
 do {
     var hand1 = dealer.dealCards(2);
     count++;
     handAnalyzer.analyze(hand1);
     console.log('Cards ', board.print(), hand1.print());
 }
-while (!handAnalyzer.isFlush());
-
+while (!handAnalyzer.isStraight());
+console.log(handAnalyzer.allCards.spliceStraight(handAnalyzer.isStraight()).print());
 console.log('Took %s deals', count);
 
 
