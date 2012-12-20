@@ -9,7 +9,7 @@ var dealer = new Dealer();
 // var hand = dealer.dealCards(2);
 var board = new Cards([]);
 
-var hand = new Cards('Ah3h4h5h6h7h8h')
+var hand = new Cards('AsQhKhJhTh9h')
 console.log('Hand:', hand.print());
 console.log('Board:', board.print());
 
