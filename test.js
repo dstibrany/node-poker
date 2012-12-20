@@ -5,10 +5,11 @@ var HandAnalyzer = require('./lib/handAnalyzer.js');
 var numCards = process.argv[2] || 1;
 
 var dealer = new Dealer();
-var board = dealer.dealCards(5);
-var hand = dealer.dealCards(2);
-// var board = new Cards('6h5hTdQd4h')
-// var hand = new Cards('2h3h')
+// var board = dealer.dealCards(5);
+// var hand = dealer.dealCards(2);
+var board = new Cards([]);
+
+var hand = new Cards('Ah3h4h5h6h7h8h')
 console.log('Hand:', hand.print());
 console.log('Board:', board.print());
 
