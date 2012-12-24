@@ -7,15 +7,18 @@ var numCards = process.argv[2] || 1;
 var dealer = new Dealer();
 // var board = dealer.dealCards(5);
 // var hand = dealer.dealCards(2);
-var board = new Cards([]);
 
-var hand = new Cards('AsQhKhJhTh9h')
-console.log('Hand:', hand.print());
-console.log('Board:', board.print());
+var board = new Cards([]);
+// var hand = new Cards('AsAdAhTsTd')
+// var hand = new Cards('JdKsQsTs9s')
+// var hand = new Cards('3s3d3c3h9s')
+var hand = new Cards('3d2d7d9dTd')
+// console.log('Hand:', hand.print());
+// console.log('Board:', board.print());
 
 var handAnalyzer = new HandAnalyzer(board);
 var finalHand = handAnalyzer.analyze(hand);
-console.log('\nResults:', finalHand.handType, finalHand.finalHand.print());
+console.log('\nResults:', finalHand.handType, finalHand.finalHand.print(), finalHand.weight);
 // console.log(handAnalyzer.isFullHouse())
 // console.log(handAnalyzer.isTwoPair())
 
