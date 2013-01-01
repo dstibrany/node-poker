@@ -16,7 +16,12 @@ describe('Cards: [As, 2s]', function() {
         expect(cards.toString()).toEqual('As2s');
     });
     it('can make a clone', function() {
+        var clone = cards.clone();
         expect(cards.clone()).toEqual(cards);
+        expect(cards.clone()).not.toBe(cards);
+        for (var i = 0; i < clone.cards.length; i++) {
+            expect(clone.cards[i]).not.toBe(cards.cards[i]);
+        }
     });
     it('can merge with another Cards object', function() {
         var otherCards = new Cards('Tc9sJh');
@@ -28,6 +33,13 @@ describe('Cards: [As, 2s]', function() {
             return weight;
         };
         expect(cards.reduce(reduceCallback)).toEqual(16);
+    });
+    it('can be mapped', function() {
+        var mapCallback = function(card) {
+            card.suit = 'h';
+            return card;
+        };
+        expect(cards.map(mapCallback).toString()).toEqual('Ah2h');
     });
     it('can be spliced', function() {
         expect(cards.splice(-1, 1).toString()).toEqual('2s');
