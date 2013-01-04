@@ -9,7 +9,9 @@
     "url": "git@github.com:dstibrany/node-poker.git"
   },
   "dependencies" : {
-    "lodash"   :  ""
+    "express"  : "",
+    "lodash"   : "",
+    "socket.io": ""
   },
   "engines": {
     "node": ">=0.6"

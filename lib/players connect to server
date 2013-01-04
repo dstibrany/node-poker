@@ -1,0 +1,9 @@
+players connect to server
+
+server send each player 2 cards
+
+server broadcasts 3 cards
+server broadcasts 1 card
+server broadcasts 1 card
+
+server determines winning hand
