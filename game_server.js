@@ -2,7 +2,7 @@ var socketio = require('socket.io');
 var Player = require('./lib/player');
 var Table = require('./lib/table');
 
-var game = {
+var lobby = {
     players: {},
     tables: {}
 }
@@ -12,18 +12,18 @@ var init = function(server) {
     createTables();
 
     io.on('connection', function(socket) {
-        var counter = Object.keys(game.players).length;
+        var counter = Object.keys(lobby.players).length;
         var player = new Player('Player ' + counter, socket);
-        game.players[player.name] = player;
-        player.joinTable(game.tables['table1']);
+        lobby.players[player.name] = player;
+        player.joinTable(lobby.tables['table1']);
         player.sit('table1', counter);
     });
 };
 
 var createTables = function() {
-    game.tables['table1'] = new Table('table1', 6, game.io);
-    game.tables['table2'] = new Table('table2', 2, game.io);
-    game.tables['table3'] = new Table('table3', 10, game.io);
+    lobby.tables['table1'] = new Table('table1', 6, lobby.io);
+    lobby.tables['table2'] = new Table('table2', 2, lobby.io);
+    lobby.tables['table3'] = new Table('table3', 10, lobby.io);
 };
 
 exports.init = init;
