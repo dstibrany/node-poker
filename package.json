@@ -2,11 +2,11 @@
   "name": "node-poker",
   "version": "0.0.1",
   "author": "Dave Stibrany <dstibrany@gmail.com>",
-  "description": "",
+  "description": "A Real Time Poker Application",
   
   "repository": {
     "type": "git",
-    "url": "git@github.com:dstibrany/node-poker.git"
+    "url" : "git@github.com:dstibrany/node-poker.git"
   },
   "dependencies" : {
     "express"  : "",

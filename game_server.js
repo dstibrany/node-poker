@@ -1,6 +1,6 @@
 var socketio = require('socket.io');
-var Player = require('./lib/player');
-var Table = require('./lib/table');
+var Player   = require('./lib/player');
+var Table    = require('./lib/table');
 
 var lobby = {
     players: {},
