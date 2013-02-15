@@ -1,0 +1,7 @@
+-profile hand analyzer X
+-users should only have a select number of options based on context
+-handle split pots
+-deal with chip counts
+-loop gameloop
+-linting
+-put cap on num of bets

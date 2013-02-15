@@ -3,7 +3,7 @@ var utils  = require('./lib/utils')
 var Player = require('./lib/player');
 var Table  = require('./lib/table');
 
-var table = new Table('Table1', 6, 10);
+var table   = new Table('Table1', 6, 10);
 var player1 = new Player('Dave');
 var player2 = new Player('Pokey');
 
