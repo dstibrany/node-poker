@@ -5,3 +5,8 @@
 -loop gameloop
 -linting
 -put cap on num of bets
+
+fold: always
+raise: always
+check: if lasttoraise is null
+call: if lasttoraise is not null

@@ -16,13 +16,30 @@ player2.sit('Table1', 1);
 process.stdin.setEncoding('utf8');
 
 process.stdin.on('data', function (chunk) {
+    var action;
     chunk = chunk.trim();
     var currentPlayer = table.state.currentSeat.player;
-    if (/raise|call|bet|check|fold/.test(chunk)) {
+    switch (chunk) {
+        case 'r':
+            action = 'raise';
+            break;
+        case 'f':
+            action = 'fold';
+            break;
+        case 'c':
+            if (table.state.actions.some(function(action) { return action === 'call' }))
+                action = 'call';
+            else
+                action = 'check';
+            break;
+    }
+    if (/^raise|call|check|fold$/.test(chunk)) {
+        action = chunk;
+    }
+    if (action) {
         process.stdin.pause();
-        currentPlayer.doAction(table.name, chunk);
-        
-    } 
+        currentPlayer.doAction(table.name, action); 
+    }
 });
 
 
