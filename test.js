@@ -4,14 +4,14 @@ var Player = require('./lib/player');
 var Table  = require('./lib/table');
 
 var table   = new Table('Table1', 6, 10);
-var player1 = new Player('Dave');
-var player2 = new Player('Pokey');
+var player1 = new Player('Dave', 1000);
+var player2 = new Player('Pokey', 1000);
 
 player1.joinTable(table);
 player2.joinTable(table);
 
-player1.sit('Table1', 0);
-player2.sit('Table1', 1);
+player1.sit('Table1', 0, 500);
+player2.sit('Table1', 1, 500);
 
 process.stdin.setEncoding('utf8');
 

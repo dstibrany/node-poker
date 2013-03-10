@@ -1,12 +1,10 @@
 -profile hand analyzer X
--users should only have a select number of options based on context
+-users should only have a select number of options based on context X
 -handle split pots
 -deal with chip counts
 -loop gameloop
 -linting
 -put cap on num of bets
 
-fold: always
-raise: always
-check: if lasttoraise is null
-call: if lasttoraise is not null
+
+
