@@ -2,7 +2,7 @@
 -users should only have a select number of options based on context X
 -handle split pots
 -deal with chip counts
--loop gameloop
+-loop gameloop X
 -linting
 -put cap on num of bets
 
