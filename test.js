@@ -6,12 +6,19 @@ var Table  = require('./lib/table');
 var table   = new Table('Table1', 6, 10);
 var player1 = new Player('Dave', 1000);
 var player2 = new Player('Pokey', 1000);
+var player3 = new Player('Willy', 1000);
 
 player1.joinTable(table);
 player2.joinTable(table);
+player3.joinTable(table);
 
 player1.sit('Table1', 0, 500);
 player2.sit('Table1', 1, 500);
+player3.sit('Table1', 2, 500);
+
+player1.sitIn('Table1');
+player2.sitIn('Table1');
+// player3.sitIn('Table1');
 
 process.stdin.setEncoding('utf8');
 

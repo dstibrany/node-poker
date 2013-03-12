@@ -5,6 +5,8 @@
 -loop gameloop X
 -linting
 -put cap on num of bets
+-handle loop on win by fold
+-handle All In
 
 
 
