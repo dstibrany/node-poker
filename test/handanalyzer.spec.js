@@ -99,8 +99,75 @@ describe('On a board of: [4s, Qh, Kc, Kh, Jh]', function() {
             expect(results.hand.toString()).toEqual('KcKh9sJhQh');
         });
     });
+
 });
 
+describe('Testing Hand Type Values', function() {
+    var ha = new HandAnalyzer(new Cards(''));
+    it('A pair beats a high card', function() {
+        var hand1 = ha.analyze(new Cards('AsAdTc9s2d'));
+        var hand2 = ha.analyze(new Cards('Ac3dTs9d2h'));
+        expect(hand1.handType).toEqual('Pair');
+        expect(hand2.handType).toEqual('High card');
+        expect(hand1.handTypeValue).toBeGreaterThan(hand2.handTypeValue);
+    }); 
+    it('Two Pairs beats a Pair', function() {
+        var hand1 = ha.analyze(new Cards('AsAdTcTs2d'));
+        var hand2 = ha.analyze(new Cards('AcAhTs9d2h'));
+        expect(hand1.handType).toEqual('Two pairs');
+        expect(hand2.handType).toEqual('Pair');
+        expect(hand1.handTypeValue).toBeGreaterThan(hand2.handTypeValue);
+    }); 
+    it('Trips beats Two Pairs', function() {
+        var hand1 = ha.analyze(new Cards('AsAdAcTs2d'));
+        var hand2 = ha.analyze(new Cards('2c2hTdTd3h'));
+        expect(hand1.handType).toEqual('Three of a kind');
+        expect(hand2.handType).toEqual('Two pairs');
+        expect(hand1.handTypeValue).toBeGreaterThan(hand2.handTypeValue);
+    });
+    it('A Straight beats Trips', function() {
+        var hand1 = ha.analyze(new Cards('As2d3c4s5d'));
+        var hand2 = ha.analyze(new Cards('2c2h2sTd3h'));
+        expect(hand1.handType).toEqual('Straight');
+        expect(hand2.handType).toEqual('Three of a kind');
+        expect(hand1.handTypeValue).toBeGreaterThan(hand2.handTypeValue);
+    }); 
+    it('A Flush beats a Straight', function() {
+        var hand1 = ha.analyze(new Cards('2hJh3h5h8h'));
+        var hand2 = ha.analyze(new Cards('6s2d3c4s5d'));
+        expect(hand1.handType).toEqual('Flush');
+        expect(hand2.handType).toEqual('Straight');
+        expect(hand1.handTypeValue).toBeGreaterThan(hand2.handTypeValue);
+    });
+    it('A Full house beats a Flush', function() {
+        var hand1 = ha.analyze(new Cards('6s6d6c4s4d'));
+        var hand2 = ha.analyze(new Cards('2hJh3h5h8h'));
+        expect(hand1.handType).toEqual('Full house');
+        expect(hand2.handType).toEqual('Flush');
+        expect(hand1.handTypeValue).toBeGreaterThan(hand2.handTypeValue);
+    });
+    it('Four of a kind beats a Full house', function() {
+        var hand1 = ha.analyze(new Cards('2h2s2d2c8h'));
+        var hand2 = ha.analyze(new Cards('6s6d6c4s4d'));
+        expect(hand1.handType).toEqual('Four of a kind');
+        expect(hand2.handType).toEqual('Full house');
+        expect(hand1.handTypeValue).toBeGreaterThan(hand2.handTypeValue);
+    }); 
+    it('A Straight flush beats Four of a kind', function() {
+        var hand1 = ha.analyze(new Cards('2h3h4h5h6h'));
+        var hand2 = ha.analyze(new Cards('7s7d7c7h4d'));
+        expect(hand1.handType).toEqual('Straight flush');
+        expect(hand2.handType).toEqual('Four of a kind');
+        expect(hand1.handTypeValue).toBeGreaterThan(hand2.handTypeValue);
+    });
+    it('A Royal flush beats a Straight flush', function() {
+        var hand1 = ha.analyze(new Cards('TsJsQsKsAs'));
+        var hand2 = ha.analyze(new Cards('2h3h4h5hAh'));
+        expect(hand1.handType).toEqual('Royal flush');
+        expect(hand2.handType).toEqual('Straight flush');
+        expect(hand1.handTypeValue).toBeGreaterThan(hand2.handTypeValue);
+    }); 
+});
 
 
 
