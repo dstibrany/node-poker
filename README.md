@@ -5,8 +5,9 @@ Realtime poker web-app using Node.js + websockets
 ## How to run ##
 `npm install`
 
-Currently, the game can only be run locally via `node simulate.js`. You have to manually create
-players, and add them to the table. After that, the game can be 'played' via STDIN.
+Currently, the game can only be run locally via `node simulate.js`. This will allow you to get a feel for
+the game engine. The script creates a table as well as three players with a predetermined chip count.
+After that, the game can be 'played' via STDIN.
 
 ## TODO ##
 
@@ -19,10 +20,8 @@ players, and add them to the table. After that, the game can be 'played' via STD
 
 ### Network Layer ###
 - replace socket.io with sockjs
-- ensure that everything is actually be sent out
+- persistence to DB
+- get data going out to websockets
 
 ### Frontend ###
 - everything :)
-
-
-
