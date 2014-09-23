@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "author": "Dave Stibrany <dstibrany@gmail.com>",
   "description": "A Real-Time Poker Application",
-  
+
   "repository": {
     "type": "git",
     "url" : "git@github.com:dstibrany/node-poker.git"
@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "jasmine-node": ""
-  }
+  },
   "engines": {
     "node": ">=0.6"
   }
